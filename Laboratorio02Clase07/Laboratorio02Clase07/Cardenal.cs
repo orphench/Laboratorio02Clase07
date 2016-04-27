@@ -37,14 +37,17 @@ namespace Laboratorio02Clase07
 
         public string ObtenerNombreYNombrePapal()
         {
-            //string nombreFinal = _nombrePapal + 
-
             return "El cardenal " + this._nombre + " se llamará Papa " + this._nombrePapal;
         }
 
         private string Mostrar()
         {
             return ObtenerNombreYNombrePapal() + "\nNacionalidad: "+this._nacionalidad+"\nVotos recibidos: "+_cantVotosRecibidos;
+        }
+
+        public static string Mostrar(Cardenal c)
+        {
+            return c.Mostrar();
         }
     }
 }

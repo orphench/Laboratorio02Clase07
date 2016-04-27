@@ -10,7 +10,7 @@ namespace Laboratorio02Clase07
     {
         static void Main(string[] args)
         {
-            //Conclave vaticano = 5;
+            Conclave vaticano = 5;
 
             Cardenal c1 = new Cardenal("Angelo", "Pio XIII", ENacionalidades.Italiano);
             Cardenal c2 = new Cardenal("Roberto", "Juan XIV");
@@ -22,7 +22,9 @@ namespace Laboratorio02Clase07
 
             //vaticano += c1;
 
-            c1.ObtenerNombreYNombrePapal();
+            //c1.ObtenerNombreYNombrePapal();
+
+            Console.WriteLine(vaticano.Mostrar());
 
             Console.ReadKey();
         }

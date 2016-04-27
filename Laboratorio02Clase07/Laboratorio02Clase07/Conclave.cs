@@ -19,13 +19,14 @@ namespace Laboratorio02Clase07
         static Conclave()
         {
             cantidadVotaciones = 0;
-            fechaVotacion = DateTime.Now;
+            fechaVotacion = DateTime.Now;         
         }
 
         public Conclave()
         {
             this._cantMaxCardenales = 1;
             this._lugarEleccion = "Capilla Sixtina";
+            this._cardenales = new List<Cardenal>();
         }
 
         private Conclave(int cantidadCardenales):this()
@@ -39,7 +40,63 @@ namespace Laboratorio02Clase07
             this._lugarEleccion = lugarEleccion;
         }
 
+        public static implicit operator Conclave(int cantidadCardenales)
+        {
+            return new Conclave(cantidadCardenales);
+        }
 
+        //public static explicit operator bool(Conclave con)
+        //{
+
+        //}
+
+        private bool HayLugar()
+        {
+            bool hayLugar = false;
+
+            if (this._cardenales.Count < this._cantMaxCardenales)
+            {
+                hayLugar = true;
+            }
+
+            return hayLugar;
+        }
+
+        private string MostrarCardenales()
+        {
+
+            foreach (Cardenal item in _cardenales)
+            {
+                return Cardenal.Mostrar(item);
+            }
+
+            return "";
+        }
+
+        public string Mostrar()
+        {
+            //if (this._habemusPapa==true)
+            //{
+		        
+            //}
+            return "Lugar de la elección: " + this._lugarEleccion+"\nFecha: "+fechaVotacion+
+                "\nCantidad de votaciones: "+cantidadVotaciones+"\n"+MostrarCardenales();
+        }
+
+        /*public static bool operator ==(Conclave con, Cardenal c)
+        {
+
+        }
+
+        public static bool operator !=(Conclave con, Cardenal c)
+        {
+            return !(con == c);
+        }
+
+        public static Conclave operator +(Conclave con, Cardenal c)
+        {
+
+        }*/
 
     }
 }

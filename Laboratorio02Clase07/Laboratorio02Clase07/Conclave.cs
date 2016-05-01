@@ -19,7 +19,7 @@ namespace Laboratorio02Clase07
         static Conclave()
         {
             cantidadVotaciones = 0;
-            fechaVotacion = DateTime.Now;         
+            fechaVotacion = DateTime.Today;         
         }
 
         public Conclave()
@@ -75,17 +75,32 @@ namespace Laboratorio02Clase07
 
         public string Mostrar()
         {
-            //if (this._habemusPapa==true)
-            //{
-		        
-            //}
-            return "Lugar de la elección: " + this._lugarEleccion+"\nFecha: "+fechaVotacion+
-                "\nCantidad de votaciones: "+cantidadVotaciones+"\n"+MostrarCardenales();
+            if (this._habemusPapa==true)
+            {
+                return "HABEMUS PAPA " + _papa.ObtenerNombreYNombrePapal();
+            }
+
+            else
+            {
+                return "Lugar de la elección: " + this._lugarEleccion + "\nFecha: " + fechaVotacion.ToShortDateString() +
+                "\nCantidad de votaciones: " + cantidadVotaciones + "\n" + MostrarCardenales() + "NO HABEMUS PAPA!!!!";
+            }
+            
         }
 
-        /*public static bool operator ==(Conclave con, Cardenal c)
+        public static bool operator ==(Conclave con, Cardenal c)
         {
+            bool comparar = false;
 
+            foreach (Cardenal item in con._cardenales)
+            {
+                if (item==c)
+                {
+                    comparar = true;
+                }
+            }
+
+            return comparar;
         }
 
         public static bool operator !=(Conclave con, Cardenal c)
@@ -96,7 +111,10 @@ namespace Laboratorio02Clase07
         public static Conclave operator +(Conclave con, Cardenal c)
         {
 
-        }*/
+            con._cardenales.Add(c);
+
+            return con;
+        }
 
     }
 }

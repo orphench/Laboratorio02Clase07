@@ -49,5 +49,29 @@ namespace Laboratorio02Clase07
         {
             return c.Mostrar();
         }
+
+        public static bool operator ==(Cardenal c1, Cardenal c2)
+        {
+            bool comparar = false;
+
+            if (c1._nombre == c2._nombre && c1._nombrePapal==c2._nombrePapal && c1._nacionalidad == c2._nacionalidad)
+            {
+                comparar = true;
+            }
+
+            return comparar;
+        }
+
+        public static bool operator !=(Cardenal c1, Cardenal c2)
+        {
+            return !(c1 == c2);
+        }
+
+        //public static Cardenal operator ++(Cardenal c1)
+        //{
+        //    c1._cantVotosRecibidos++;
+
+        //    return c1;
+        //}
     }
 }

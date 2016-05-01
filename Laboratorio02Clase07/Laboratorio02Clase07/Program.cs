@@ -14,13 +14,20 @@ namespace Laboratorio02Clase07
             //GitHub desde Visual
             Cardenal c1 = new Cardenal("Angelo", "Pio XIII", ENacionalidades.Italiano);
             Cardenal c2 = new Cardenal("Roberto", "Juan XIV");
-            Cardenal c3 = new Cardenal("Roberto", "Juam XVI");
+            Cardenal c3 = new Cardenal("Roberto", "Juan XIV");
             Cardenal c4 = new Cardenal("Juan", "Mateo I", ENacionalidades.Español);
             Cardenal c5 = new Cardenal("Mario", "Francisco I", ENacionalidades.Argentino);
             Cardenal c6 = new Cardenal("Jhon", "Peter II", ENacionalidades.Nigeriano);
             Cardenal c7 = new Cardenal("Jhon", "Peter II", ENacionalidades.Polaco);
 
-            //vaticano += c1;
+            vaticano += c1;
+            vaticano += c2;
+            vaticano += c3;
+            vaticano += c4;
+            vaticano += c5;
+            vaticano += c6;
+            vaticano += c7;
+            
 
             //c1.ObtenerNombreYNombrePapal();
 

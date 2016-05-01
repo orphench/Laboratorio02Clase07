@@ -11,7 +11,7 @@ namespace Laboratorio02Clase07
         static void Main(string[] args)
         {
             Conclave vaticano = 5;
-
+            //GitHub desde Visual
             Cardenal c1 = new Cardenal("Angelo", "Pio XIII", ENacionalidades.Italiano);
             Cardenal c2 = new Cardenal("Roberto", "Juan XIV");
             Cardenal c3 = new Cardenal("Roberto", "Juam XVI");

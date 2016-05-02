@@ -45,10 +45,19 @@ namespace Laboratorio02Clase07
             return new Conclave(cantidadCardenales);
         }
 
-        //public static explicit operator bool(Conclave con)
-        //{
+        public static explicit operator bool(Conclave con)
+        {
+            bool hayPapa = false;
 
-        //}
+            Conclave.ContarVotos(con);
+
+            if (con._habemusPapa == true)
+            {
+                hayPapa = true;
+            }
+
+            return hayPapa;
+        }
 
         private bool HayLugar()
         {
@@ -104,7 +113,7 @@ namespace Laboratorio02Clase07
 
             else
             {
-                return "HABEMUS PAPA " + _papa.ObtenerNombreYNombrePapal();
+                return "HABEMUS PAPA!!!!\n" + _papa.ObtenerNombreYNombrePapal();
             }
 
         }
@@ -154,12 +163,31 @@ namespace Laboratorio02Clase07
         {
             Random obj = new Random();
 
-            int indicePapal = obj.Next(0, conclave._cardenales.Count-1);
+            //for (int i = 0; i < conclave._cardenales.Count-1; i++)
+           // {
+                int indicePapal = obj.Next(0, conclave._cardenales.Count - 1);
+
+                conclave._cardenales[indicePapal]++;
+           // }
+
+            
+
         }
 
         private static void ContarVotos(Conclave conclave)
         {
-            
+            for (int i = 0; i < conclave._cardenales.Count - 1; i++)
+            {
+                if (conclave._cardenales[i].getCantidadVotosRecibidos() >= 1)
+                {
+                    conclave._papa = conclave._cardenales[i];
+
+                    conclave._habemusPapa = true;
+                    break;
+                }
+            }
+
+
         }
 
     }

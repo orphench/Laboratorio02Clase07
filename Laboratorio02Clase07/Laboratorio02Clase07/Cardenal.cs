@@ -68,11 +68,11 @@ namespace Laboratorio02Clase07
             return !(c1 == c2);
         }
 
-        //public static Cardenal operator ++(Cardenal c1)
-        //{
-        //    c1._cantVotosRecibidos++;
+        public static Cardenal operator ++(Cardenal c1)
+        {
+            c1._cantVotosRecibidos++;
 
-        //    return c1;
-        //}
+            return c1;
+        }
     }
 }

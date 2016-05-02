@@ -30,8 +30,15 @@ namespace Laboratorio02Clase07
             
 
             //c1.ObtenerNombreYNombrePapal();
-
+            //MUESTRO EL CONCLAVE
             Console.WriteLine(vaticano.Mostrar());
+
+            //PROCESO DE VOTACION
+            do
+            {
+                
+
+            } while (!(bool)vaticano);
 
             Console.ReadKey();
         }

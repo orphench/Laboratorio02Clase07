@@ -35,9 +35,10 @@ namespace Laboratorio02Clase07
             return this._cantVotosRecibidos;
         }
 
-        public string ObtenerNombreYNombrePapal()
+        public static string Mostrar(Cardenal c)
         {
-            return "El cardenal " + this._nombre + " se llamará Papa " + this._nombrePapal;
+            //Console.WriteLine("CARDENALES:");
+            return c.Mostrar();
         }
 
         private string Mostrar()
@@ -45,9 +46,9 @@ namespace Laboratorio02Clase07
             return ObtenerNombreYNombrePapal() + "\nNacionalidad: "+this._nacionalidad+"\nVotos recibidos: "+_cantVotosRecibidos;
         }
 
-        public static string Mostrar(Cardenal c)
+        public string ObtenerNombreYNombrePapal()
         {
-            return c.Mostrar();
+            return "\nEl cardenal " + this._nombre + " se llamará \"Papa " + this._nombrePapal+ "\"";
         }
 
         public static bool operator ==(Cardenal c1, Cardenal c2)

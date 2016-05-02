@@ -59,33 +59,54 @@ namespace Laboratorio02Clase07
                 hayLugar = true;
             }
 
+            else
+            {
+                Console.WriteLine("No hay más lugar!!!");
+            }
+
             return hayLugar;
         }
 
         private string MostrarCardenales()
         {
+            string respuesta = "";
+            //Console.WriteLine("\n\nCARDENALES:");
 
             foreach (Cardenal item in _cardenales)
             {
-                return Cardenal.Mostrar(item);
+               respuesta = respuesta + Cardenal.Mostrar(item);
             }
 
-            return "";
+            
+            return respuesta;
         }
 
         public string Mostrar()
         {
-            if (this._habemusPapa==true)
+            //if (this._habemusPapa==true)
+            //{
+            //    return "HABEMUS PAPA " + _papa.ObtenerNombreYNombrePapal();
+            //}
+
+            //else
+            //{
+            //    return "\n\nLugar de la elección: " + this._lugarEleccion + "\nFecha: " + fechaVotacion.ToShortDateString() +
+            //    "\nCantidad de votaciones: " + cantidadVotaciones + "\nNO HABEMUS PAPA!!!!\n" + MostrarCardenales();
+            //}
+
+            Console.WriteLine("\n\nLugar de la elección: " + this._lugarEleccion + "\nFecha: " + fechaVotacion.ToShortDateString() +
+                "\nCantidad de votaciones: " + cantidadVotaciones);
+
+            if (this._habemusPapa==false)
+            {
+                return "NO HABEMUS PAPA!!!!\n\nCARDENALES:\n" + MostrarCardenales();
+            } 
+
+            else
             {
                 return "HABEMUS PAPA " + _papa.ObtenerNombreYNombrePapal();
             }
 
-            else
-            {
-                return "Lugar de la elección: " + this._lugarEleccion + "\nFecha: " + fechaVotacion.ToShortDateString() +
-                "\nCantidad de votaciones: " + cantidadVotaciones + "\n" + MostrarCardenales() + "NO HABEMUS PAPA!!!!";
-            }
-            
         }
 
         public static bool operator ==(Conclave con, Cardenal c)
@@ -97,6 +118,7 @@ namespace Laboratorio02Clase07
                 if (item==c)
                 {
                     comparar = true;
+                    break;
                 }
             }
 
@@ -110,10 +132,34 @@ namespace Laboratorio02Clase07
 
         public static Conclave operator +(Conclave con, Cardenal c)
         {
-
-            con._cardenales.Add(c);
+            if (con.HayLugar())
+            {
+               
+                    if (con!=c)
+                    {
+                        con._cardenales.Add(c);
+                    }
+                else
+                {
+                    Console.WriteLine("El cardenal ya está en el Cónclave!!!");
+                }
+                
+            }
+            
 
             return con;
+        }
+
+        public static void VotarPapa(Conclave conclave)
+        {
+            Random obj = new Random();
+
+            int indicePapal = obj.Next(0, conclave._cardenales.Count-1);
+        }
+
+        private static void ContarVotos(Conclave conclave)
+        {
+            
         }
 
     }
